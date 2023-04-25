@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
@@ -39,10 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
       firstNum = 0;
       secondNum = 0;
       result = '0';
-    } else if (function == '+' ||
-        function == '-' ||
-        function == '/' ||
-        function == 'x') {
+    } else if (function == '+' || function == '-' || function == '/' || function == 'x') {
       firstNum = int.parse(textToDisplay!);
       result = '';
       operationToPerform = function;
@@ -141,8 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     alignment: Alignment.bottomRight,
                     child: Text(
                       '$textToDisplay',
-                      style: const TextStyle(
-                          fontSize: 25, fontWeight: FontWeight.w600),
+                      style: const TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
                     ))),
             Row(
               children: [
